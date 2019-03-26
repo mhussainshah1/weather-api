@@ -9,8 +9,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource("classpath:application.properties")
-@ComponentScan
+//@PropertySource("classpath:application.properties")
 public class WeatherConfigurations {
 
     @Value("${weather.url}")
