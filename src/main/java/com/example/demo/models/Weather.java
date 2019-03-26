@@ -68,7 +68,7 @@ public class Weather implements Serializable {
     private String weatherDescription;
 
     public Weather() {
-        super();
+
     }
 
     @Bean
