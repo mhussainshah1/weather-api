@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>H2 Data</title>
+    <link rel="stylesheet" th:href="@{style.css}" type="text/css">
+</head>
+<body background="https://cdn.shopify.com/s/files/1/0533/2089/files/5-websites-to-download-free-subtle-textures-subtle.jpg?5724472906039650661">
+<h2>Data fetched from H2 DB</h2>
+<div class="div">
+    <a class="link" href="#" style="text-decoration: none" th:href="@{/product}">H2 DATA</a>
+    <a class="link" href="#" style="text-decoration: none" th:href="@{/weather}">WEATHER DATA</a>
+</div>
+<div class="div1">
+    <table id="table" style="width:100%">
+        <tr>
+            <th>Id</th>
+            <th>Product</th>
+            <th>Product Type</th>
+            <th>Description</th>
+        </tr>
+
+        <tr th:each="products,iterStat : ${h2Data}">
+            <td><span th:text="${products.id}"></span></td>
+            <td><span th:text="${products.product}"></span></td>
+            <td><span th:text="${products.productType}"></span></td>
+            <td><span th:text="${products.description}"></span></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
