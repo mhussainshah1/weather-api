@@ -21,7 +21,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.io.IOException;
 
-@ComponentScan("com.spring.restapi.config")
 @Controller
 public class WeatherController {
 

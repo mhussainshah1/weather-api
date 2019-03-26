@@ -6,6 +6,7 @@ public class WeatherUrl {
     private String apiKey;
 
     public WeatherUrl() {
+
     }
 
     public String getApiKey() {

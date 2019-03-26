@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-
 @Controller
 public class ProductController {
 
@@ -57,7 +56,5 @@ public class ProductController {
     public ResponseEntity<String> deleteProductById(@PathVariable(value = "id") long id) {
         productRepository.deleteById(id);
         return ResponseEntity.ok().body("Deleted successFully");
-
     }
-
 }
