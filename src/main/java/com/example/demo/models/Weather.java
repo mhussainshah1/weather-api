@@ -1,33 +1,35 @@
 package com.example.demo.models;
 
 /**
-
- [Source: (String)
-
- "{
-
- "coord":{"lon":-73.99,"lat":40.73},
-
- "weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],
-
- "base":"stations",
-
- "main":{"temp":275.41,"pressure":1020,"humidity":29,"temp_min":273.15,"temp_max":277.15},
-
- "visibility":16093,
-
- "wind":{"speed":3.6,"deg":360},
-
- "clouds":{"all":1},
-
- "dt":1553583986,
-
- "sys":{"type":1,"id":6015,"message":0.0093,"country":"US","sunrise":1553597383,"sunset":1553642009},
-
- "id":5128581,"name":"New York","cod":200
-
- }"
-
+ * [Source: (String)
+ * <p>
+ * "{
+ * <p>
+ * "coord":{"lon":-73.99,"lat":40.73},
+ * <p>
+ * "weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],
+ * <p>
+ * "base":"stations",
+ * <p>
+ * "main":{"temp":275.41,"pressure":1020,"humidity":29,"temp_min":273.15,"temp_max":277.15},
+ * <p>
+ * "visibility":16093,
+ * <p>
+ * "wind":{"speed":3.6,"deg":360},
+ * <p>
+ * "clouds":{"all":1},
+ * <p>
+ * "dt":1553583986,
+ * <p>
+ * "sys":{"type":1,"id":6015,"message":0.0093,"country":"US","sunrise":1553597383,"sunset":1553642009},
+ * <p>
+ * "id":5128581,
+ * <p>
+ * "name":"New York",
+ * <p>
+ * "cod":200
+ * <p>
+ * }"
  */
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -136,8 +138,8 @@ public class Weather implements Serializable {
 
     @JsonProperty("weather")
     public void setWeather(List<Map<String, Object>> weatherEntries) {
-        for(Map<String,Object> weatherEntry : weatherEntries){
-            for(String key : weatherEntry.keySet()){
+        for (Map<String, Object> weatherEntry : weatherEntries) {
+            for (String key : weatherEntry.keySet()) {
                 System.out.println(key + "  " + weatherEntry.get(key));
             }
         }
@@ -146,13 +148,13 @@ public class Weather implements Serializable {
     }
 
     @JsonProperty("main")
-    public void setMain(Map<String, Object> main){
-        setTemp((double)main.get("temp"));
+    public void setMain(Map<String, Object> main) {
+        setTemp((double) main.get("temp"));
         setTempMin((double) main.get("temp_min"));
         setTempMax((double) main.get("temp_max"));
     }
 
-    public double getCelcius(double kelvin){
-        return kelvin -273;
+    public double getCelcius(double kelvin) {
+        return kelvin - 273;
     }
 }

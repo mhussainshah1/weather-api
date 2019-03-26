@@ -1,11 +1,11 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.FormCityAttribute;
+import com.example.demo.models.Weather;
+import com.example.demo.models.WeatherUrl;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.example.demo.models.Weather;
-import com.example.demo.models.WeatherUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpMethod;
@@ -39,7 +39,7 @@ public class WeatherController {
 
     @PostMapping("/weather")
     public String getWeather(Model model, @ModelAttribute FormCityAttribute city)
-            throws JsonParseException, JsonMappingException, IOException {
+            throws IOException {
 
         UriComponents uriComponents = UriComponentsBuilder
                 .newInstance()

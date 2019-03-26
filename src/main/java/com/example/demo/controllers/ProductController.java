@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.Product;
-import com.example.demo.services.ProductService;
+import com.example.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private ProductRepository productRepository;
 
     @RequestMapping("/")
     public String indexPage() {
@@ -26,7 +26,7 @@ public class ProductController {
     @RequestMapping("/product")
     public String product(Model model) {
 
-        model.addAttribute("h2Data", productService.getAllProducts());
+        model.addAttribute("h2Data", productRepository.findAll());
         return "h2List";
     }
 
@@ -34,12 +34,12 @@ public class ProductController {
     @RequestMapping("api/products")
     @ResponseBody
     public Iterable<Product> getAllProducts() {
-        return productService.getAllProducts();
+        return productRepository.findAll();
     }
 
     @RequestMapping("api/product/{id}")
     public ResponseEntity<Optional<Product>> getProductById(@PathVariable(value = "id") Long id) {
-        Optional<Product> prod = productService.findProductById(id);
+        Optional<Product> prod = productRepository.findById(id);
         if (prod == null) {
             return ResponseEntity.notFound().build();
         }
@@ -49,14 +49,14 @@ public class ProductController {
     @PostMapping("api/product")
     @ResponseBody
     public ResponseEntity<String> saveProducts(@RequestBody Product product) {
-        productService.saveProduct(product);
-        return ResponseEntity.ok().body(new String("Resource successFully created!!!"));
+        productRepository.save(product);
+        return ResponseEntity.ok().body("Resource successFully created!!!");
     }
 
     @DeleteMapping("api/product/{id}")
     public ResponseEntity<String> deleteProductById(@PathVariable(value = "id") long id) {
-        productService.deleteProductById(id);
-        return ResponseEntity.ok().body(new String("Deleted successFully"));
+        productRepository.deleteById(id);
+        return ResponseEntity.ok().body("Deleted successFully");
 
     }
 
