@@ -1,10 +1,8 @@
 package com.example.demo.controllers;
 
-import com.example.demo.models.FormCityAttribute;
+import com.example.demo.models.FormAttributes;
 import com.example.demo.models.Weather;
 import com.example.demo.models.WeatherUrl;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -33,12 +31,12 @@ public class WeatherController {
 
     @GetMapping("/weather")
     public String CityForm(Model model) {
-        model.addAttribute("city", new FormCityAttribute());
+        model.addAttribute("city", new FormAttributes());
         return "formData";
     }
 
     @PostMapping("/weather")
-    public String getWeather(Model model, @ModelAttribute FormCityAttribute city)
+    public String getWeather(Model model, @ModelAttribute FormAttributes city)
             throws IOException {
 
         UriComponents uriComponents = UriComponentsBuilder

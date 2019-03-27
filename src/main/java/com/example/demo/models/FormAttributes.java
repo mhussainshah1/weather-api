@@ -1,14 +1,14 @@
 package com.example.demo.models;
 
-public class FormCityAttribute {
+public class FormAttributes {
 
     private String city;
 
-    public FormCityAttribute() {
+    public FormAttributes() {
         super();
     }
 
-    public FormCityAttribute(String city) {
+    public FormAttributes(String city) {
         super();
         this.city = city;
     }
