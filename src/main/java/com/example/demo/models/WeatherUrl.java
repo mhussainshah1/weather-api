@@ -6,8 +6,7 @@ public class WeatherUrl {
     private String apiKey;
 
     public WeatherUrl() {
-        super();
-        // TODO Auto-generated constructor stub
+
     }
 
     public String getApiKey() {
